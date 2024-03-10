@@ -1,0 +1,192 @@
+:root {
+  --clr-dark-cyan: hsl(158, 36%, 37%);
+  --clr-cream: hsl(32, 37%, 92%);
+  --clr-dark-blue: hsl(212, 21%, 14%);
+  --clr-grayish-blue: hsl(228, 12%, 48%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  --ff-base: "Montserrat", sans-serif;
+  --ff-accent: "Fraunces", serif;
+
+  --fw-500: 500;
+  --fw-700: 700;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--clr-cream);
+  font-size: 0.875rem;
+  font-family: var(--ff-base);
+  font-weight: var(--fw-500);
+  line-height: 1.5;
+  color: var(--clr-grayish-blue);
+}
+
+.product {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--clr-white);
+  max-width: 600px;
+}
+
+p {
+  margin-block-start: 0;
+}
+
+.product__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  gap: 1rem;
+}
+
+.product__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--clr-grayish-blue);
+}
+
+.product__title {
+  margin-block: 1rem 0;
+  font-family: var(--ff-accent);
+  font-weight: var(--fw-700);
+  color: var(--clr-dark-blue);
+  line-height: 1.2;
+  font-size: 2.25rem;
+}
+
+.product__price {
+  margin-block: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.product__price.is--current-price {
+  color: var(--clr-dark-cyan);
+  font-size: 2rem;
+  font-weight: var(--fw-700);
+  font-family: var(--ff-accent);
+  line-height: 1;
+}
+
+.product__price.is--striked-out {
+  text-decoration: line-through;
+  color: var(--clr-grayish-blue);
+}
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.75em 1.5em;
+  background-color: var(--clr-dark-cyan);
+  color: var(--clr-white);
+  font-weight: var(--fw-700);
+  font-size: 0.925rem;
+}
+
+.button:is(:hover, :focus) {
+  background-color: var(--clr-dark-blue);
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+
+@media (min-width: 600px) {
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+  }
+}
